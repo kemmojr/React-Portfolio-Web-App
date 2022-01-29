@@ -32,6 +32,8 @@ services:
       - "3050:80"
 
   api:
+    expose:
+      - '3001'
     build:
       dockerfile: Dockerfile
       context: "./server"
@@ -45,6 +47,8 @@ services:
       MYSQL_HOST_IP: mysql_db
 
   client:
+    expose:
+        - '3000'
     stdin_open: true
     environment:
       - CHOKIDAR_USEPOLLING=true
